@@ -160,22 +160,30 @@
   .section-verse {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
-    font-size: 1.05rem;
+    font-size: clamp(1.4rem, 2.5vw, 2rem);
     color: var(--mist);
     margin-bottom: 3rem;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   /* ── GALLERY SECTIONS ── */
   .gallery-section {
     padding: 6rem 2rem;
+  }
+
+  .gallery-section .gallery-inner {
     max-width: 1100px;
     margin: 0 auto;
   }
 
-  .gallery-section + .gallery-section {
-    border-top: 1px solid rgba(138,128,112,0.2);
-  }
+  /* Progressive darkening — warm amber → deep black */
+  #room-1 { background: #282315; }
+  #room-2 { background: #1c1910; }
+  #room-3 { background: #10100a; }
+
+  #room-1 .section-verse { color: #b0a890; }
+  #room-2 .section-verse { color: #908880; }
+  #room-3 .section-verse { color: #706860; }
 
   .section-header {
     margin-bottom: 3.5rem;
@@ -438,7 +446,8 @@
 </section>
 
 <!-- ═══ SECTION I: Small Losses ═══ -->
-<section class="gallery-section">
+<section class="gallery-section" id="room-1">
+<div class="gallery-inner">
   <div class="section-header reveal">
     <p class="section-label">Room I</p>
     <p class="section-verse">"Lose something every day. Accept the fluster<br>of lost door keys, the hour badly spent."</p>
@@ -477,10 +486,12 @@
     </div>
 
   </div>
+</div>
 </section>
 
 <!-- ═══ SECTION II: The Watch ═══ -->
-<section class="gallery-section">
+<section class="gallery-section" id="room-2">
+<div class="gallery-inner">
   <div class="section-header reveal">
     <p class="section-label">Room II</p>
     <p class="section-verse">"I lost my mother's watch."</p>
@@ -521,10 +532,12 @@
     </div>
 
   </div>
+</div>
 </section>
 
 <!-- ═══ SECTION III: Cities & Continents ═══ -->
-<section class="gallery-section">
+<section class="gallery-section" id="room-3">
+<div class="gallery-inner">
   <div class="section-header reveal">
     <p class="section-label">Room III</p>
     <p class="section-verse">"I lost two cities, lovely ones. And, vaster,<br>some realms I owned, two rivers, a continent."</p>
@@ -573,6 +586,7 @@
     </div>
 
   </div>
+</div>
 </section>
 
 <!-- ═══ SECTION IV: The You ═══ -->
