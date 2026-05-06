@@ -1,678 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>One Art — A Gallery</title>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Courier+Prime:ital@0;1&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <link rel="icon" type="image/webp" href="OIP.webp">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Art — A Gallery</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Courier+Prime:ital@0;1&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --cream: #f5f0e8;
-    --warm-white: #faf7f2;
-    --ink: #1a1710;
-    --faded-ink: #3d3a30;
-    --dust: #8a8070;
-    --rust: #9b4a2a;
-    --pale-rust: #e8c9bb;
-    --gold: #b8922a;
-    --mist: #c8c0b0;
-    --paper: #ede8dc;
-  }
+    :root {
+      --cream: #f5f0e8;
+      --warm-white: #faf7f2;
+      --ink: #1a1710;
+      --faded-ink: #3d3a30;
+      --dust: #8a8070;
+      --rust: #9b4a2a;
+      --pale-rust: #e8c9bb;
+      --gold: #b8922a;
+      --mist: #c8c0b0;
+      --paper: #ede8dc;
+    }
 
-  html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  body {
-    background: var(--ink);
-    color: var(--cream);
-    font-family: 'EB Garamond', Georgia, serif;
-    font-size: 18px;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
+    body {
+      background: var(--ink);
+      color: var(--cream);
+      font-family: 'EB Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
 
-  /* ── INTRO ── */
-  #intro {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 4rem 2rem;
-    position: relative;
-    background: var(--ink);
-  }
+    /* ── INTRO ── */
+    #intro {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+      background: var(--ink);
+    }
 
-  #intro::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at center, rgba(184,146,42,0.07) 0%, transparent 70%);
-    pointer-events: none;
-  }
+    #intro::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(184, 146, 42, 0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-  .epigraph {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1rem;
-    color: var(--dust);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: fadeUp 1.2s ease 0.3s forwards;
-  }
+    .epigraph {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--dust);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 3rem;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 0.3s forwards;
+    }
 
-  h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 300;
-    font-size: clamp(3.5rem, 10vw, 7rem);
-    line-height: 1;
-    color: var(--cream);
-    letter-spacing: -0.02em;
-    margin-bottom: 0.5rem;
-    opacity: 0;
-    animation: fadeUp 1.2s ease 0.6s forwards;
-  }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 1;
+      color: var(--cream);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 0.6s forwards;
+    }
 
-  .subtitle {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.1rem;
-    color: var(--dust);
-    margin-bottom: 3.5rem;
-    opacity: 0;
-    animation: fadeUp 1.2s ease 0.9s forwards;
-  }
+    .subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--dust);
+      margin-bottom: 3.5rem;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 0.9s forwards;
+    }
 
-  .scroll-cue {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    color: var(--dust);
-    text-transform: uppercase;
-    opacity: 0;
-    animation: fadeUp 1.2s ease 1.5s forwards;
-    cursor: pointer;
-    border: none;
-    background: transparent;
-    color: var(--dust);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-  }
+    .scroll-cue {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: var(--dust);
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeUp 1.2s ease 1.5s forwards;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      color: var(--dust);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+    }
 
-  .scroll-cue::after {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 48px;
-    background: linear-gradient(to bottom, var(--dust), transparent);
-    animation: drip 2.5s ease-in-out 2s infinite;
-  }
+    .scroll-cue::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--dust), transparent);
+      animation: drip 2.5s ease-in-out 2s infinite;
+    }
 
-  /* ── POEM BANNER ── */
-  #poem-banner {
-    background: var(--paper);
-    color: var(--ink);
-    padding: 6rem 2rem;
-    text-align: center;
-  }
+    /* ── POEM BANNER ── */
+    #poem-banner {
+      background: var(--paper);
+      color: var(--ink);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
 
-  #poem-banner blockquote {
-    max-width: 560px;
-    margin: 0 auto;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    line-height: 2;
-    font-style: italic;
-    color: var(--faded-ink);
-  }
+    #poem-banner blockquote {
+      max-width: 560px;
+      margin: 0 auto;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      line-height: 2;
+      font-style: italic;
+      color: var(--faded-ink);
+    }
 
-  #poem-banner .refrain {
-    font-style: normal;
-    font-weight: 500;
-    color: var(--rust);
-  }
+    #poem-banner .refrain {
+      font-style: normal;
+      font-weight: 500;
+      color: var(--rust);
+    }
 
-  #poem-banner .poet {
-    margin-top: 2rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--dust);
-  }
+    #poem-banner .poet {
+      margin-top: 2rem;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dust);
+    }
 
-  /* ── SECTION LABEL ── */
-  .section-label {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--dust);
-    margin-bottom: 0.75rem;
-  }
+    /* ── SECTION LABEL ── */
+    .section-label {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--dust);
+      margin-bottom: 0.75rem;
+    }
 
-  .section-verse {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(1.4rem, 2.5vw, 2rem);
-    color: var(--mist);
-    margin-bottom: 3rem;
-    line-height: 1.6;
-  }
+    .section-verse {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      color: var(--mist);
+      margin-bottom: 3rem;
+      line-height: 1.6;
+    }
 
-  /* ── GALLERY SECTIONS ── */
-  .gallery-section {
-    padding: 6rem 2rem;
-  }
+    /* ── GALLERY SECTIONS ── */
+    .gallery-section {
+      padding: 6rem 2rem;
+    }
 
-  .gallery-section .gallery-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
+    .gallery-section .gallery-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-  /* Progressive darkening — warm amber → deep black */
-  #room-1 { background: #282315; }
-  #room-2 { background: #1c1910; }
-  #room-3 { background: #10100a; }
+    /* Progressive darkening — warm amber → deep black */
+    #room-1 {
+      background: #282315;
+    }
 
-  #room-1 .section-verse { color: #b0a890; }
-  #room-2 .section-verse { color: #908880; }
-  #room-3 .section-verse { color: #706860; }
+    #room-2 {
+      background: #1c1910;
+    }
 
-  .section-header {
-    margin-bottom: 3.5rem;
-  }
+    #room-3 {
+      background: #10100a;
+    }
 
-  /* ── ARTIFACT GRID ── */
-  .artifact-grid {
-    display: grid;
-    gap: 2rem;
-  }
+    #room-1 .section-verse {
+      color: #b0a890;
+    }
 
-  .grid-2 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
-  .grid-3 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-  .grid-asymmetric {
-    grid-template-columns: 1.4fr 1fr;
-  }
+    #room-2 .section-verse {
+      color: #908880;
+    }
 
-  /* ── ARTIFACT CARD ── */
-  .artifact {
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(138,128,112,0.25);
-    border-radius: 2px;
-    overflow: hidden;
-    transition: transform 0.4s ease, border-color 0.4s ease;
-    cursor: default;
-  }
+    #room-3 .section-verse {
+      color: #706860;
+    }
 
-  .artifact:hover {
-    transform: translateY(-4px);
-    border-color: rgba(184,146,42,0.4);
-  }
+    .section-header {
+      margin-bottom: 3.5rem;
+    }
 
-  .artifact-image {
-    width: 100%;
-    aspect-ratio: 4/3;
-    object-fit: cover;
-    display: block;
-    filter: sepia(0.3) brightness(0.9);
-    transition: filter 0.4s ease;
-  }
+    /* ── ARTIFACT GRID ── */
+    .artifact-grid {
+      display: grid;
+      gap: 2rem;
+    }
 
-  .artifact:hover .artifact-image {
-    filter: sepia(0.15) brightness(0.95);
-  }
+    .grid-2 {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
 
-  /* Placeholder images using CSS for objects without photos */
-  .artifact-placeholder {
-    width: 100%;
-    aspect-ratio: 4/3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.5rem;
-    background: rgba(255,255,255,0.03);
-    border-bottom: 1px solid rgba(138,128,112,0.2);
-  }
+    .grid-3 {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
 
-  .artifact-body {
-    padding: 1.25rem 1.5rem 1.5rem;
-  }
+    .grid-asymmetric {
+      grid-template-columns: 1.4fr 1fr;
+    }
 
-  .artifact-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--cream);
-    margin-bottom: 0.4rem;
-  }
+    /* ── ARTIFACT CARD ── */
+    .artifact {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(138, 128, 112, 0.25);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: transform 0.4s ease, border-color 0.4s ease;
+      cursor: default;
+    }
 
-  .artifact-type {
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.65rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.85rem;
-  }
+    .artifact:hover {
+      transform: translateY(-4px);
+      border-color: rgba(184, 146, 42, 0.4);
+    }
 
-  .artifact-caption {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: var(--mist);
-  }
+    .artifact-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      display: block;
+      filter: sepia(0.3) brightness(0.9);
+      transition: filter 0.4s ease;
+    }
 
-  .artifact-verse {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(138,128,112,0.2);
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 0.9rem;
-    color: var(--dust);
-  }
+    .artifact:hover .artifact-image {
+      filter: sepia(0.15) brightness(0.95);
+    }
 
-  /* Tall card variant */
-  .artifact-tall .artifact-image,
-  .artifact-tall .artifact-placeholder {
-    aspect-ratio: 3/4;
-  }
+    /* Placeholder images using CSS for objects without photos */
+    .artifact-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(138, 128, 112, 0.2);
+    }
 
-  /* ── DIVIDER ── */
-  .divider {
-    width: 48px;
-    height: 1px;
-    background: var(--gold);
-    margin: 0 auto 6rem;
-    opacity: 0.5;
-  }
+    .artifact-body {
+      padding: 1.25rem 1.5rem 1.5rem;
+    }
 
-  /* ── FINAL SECTION (the You) ── */
-  #section-you {
-    background: #0e0c09;
-    padding: 8rem 2rem;
-  }
+    .artifact-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
 
-  .you-inner {
-    max-width: 700px;
-    margin: 0 auto;
-    text-align: center;
-  }
+    .artifact-type {
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.85rem;
+    }
 
-  .disaster-word {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(3rem, 8vw, 5.5rem);
-    font-style: italic;
-    font-weight: 300;
-    color: var(--rust);
-    display: block;
-    margin: 2rem 0;
-    letter-spacing: -0.02em;
-    opacity: 0;
-    animation: none;
-  }
+    .artifact-caption {
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: var(--mist);
+    }
 
-  .disaster-word.visible {
-    animation: flicker 1.2s ease forwards;
-  }
+    .artifact-verse {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(138, 128, 112, 0.2);
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.9rem;
+      color: var(--dust);
+    }
 
-  .you-artifacts {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-    margin-top: 3.5rem;
-    text-align: left;
-  }
+    /* Tall card variant */
+    .artifact-tall .artifact-image,
+    .artifact-tall .artifact-placeholder {
+      aspect-ratio: 3/4;
+    }
 
-  /* ── CLOSING POEM ── */
-  #closing {
-    background: var(--paper);
-    color: var(--faded-ink);
-    padding: 8rem 2rem;
-    text-align: center;
-  }
+    /* ── DIVIDER ── */
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 0 auto 6rem;
+      opacity: 0.5;
+    }
 
-  #closing .final-line {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(1.1rem, 3vw, 1.6rem);
-    font-style: italic;
-    line-height: 1.9;
-    max-width: 520px;
-    margin: 0 auto;
-    color: var(--faded-ink);
-  }
+    /* ── FINAL SECTION (the You) ── */
+    #section-you {
+      background: #0e0c09;
+      padding: 8rem 2rem;
+    }
 
-  #closing .final-line .parenthetical {
-    color: var(--rust);
-  }
+    .you-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-  #closing .credit {
-    margin-top: 4rem;
-    font-family: 'Courier Prime', monospace;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--dust);
-    line-height: 2;
-  }
+    .disaster-word {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--rust);
+      display: block;
+      margin: 2rem 0;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      animation: none;
+    }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+    .disaster-word.visible {
+      animation: flicker 1.2s ease forwards;
+    }
 
-  @keyframes drip {
-    0%, 100% { opacity: 0.4; transform: scaleY(1); }
-    50%       { opacity: 1; transform: scaleY(1.3); }
-  }
+    .you-artifacts {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3.5rem;
+      text-align: left;
+    }
 
-  @keyframes flicker {
-    0%   { opacity: 0; }
-    20%  { opacity: 0.9; }
-    25%  { opacity: 0.3; }
-    30%  { opacity: 1; }
-    100% { opacity: 1; }
-  }
+    /* ── CLOSING POEM ── */
+    #closing {
+      background: var(--paper);
+      color: var(--faded-ink);
+      padding: 8rem 2rem;
+      text-align: center;
+    }
 
-  /* Scroll reveal */
-  .reveal {
-    opacity: 0;
-    transform: translateY(32px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-  }
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .reveal-delay-1 { transition-delay: 0.1s; }
-  .reveal-delay-2 { transition-delay: 0.2s; }
-  .reveal-delay-3 { transition-delay: 0.3s; }
+    #closing .final-line {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.1rem, 3vw, 1.6rem);
+      font-style: italic;
+      line-height: 1.9;
+      max-width: 520px;
+      margin: 0 auto;
+      color: var(--faded-ink);
+    }
 
-  @media (max-width: 640px) {
-    .grid-asymmetric { grid-template-columns: 1fr; }
-    .artifact-tall .artifact-placeholder { aspect-ratio: 4/3; }
-  }
-</style>
+    #closing .final-line .parenthetical {
+      color: var(--rust);
+    }
+
+    #closing .credit {
+      margin-top: 4rem;
+      font-family: 'Courier Prime', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--dust);
+      line-height: 2;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes drip {
+
+      0%,
+      100% {
+        opacity: 0.4;
+        transform: scaleY(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scaleY(1.3);
+      }
+    }
+
+    @keyframes flicker {
+      0% {
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.9;
+      }
+
+      25% {
+        opacity: 0.3;
+      }
+
+      30% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 1;
+      }
+    }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    @media (max-width: 640px) {
+      .grid-asymmetric {
+        grid-template-columns: 1fr;
+      }
+
+      .artifact-tall .artifact-placeholder {
+        aspect-ratio: 4/3;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- ═══ INTRO ═══ -->
-<section id="intro">
-  <p class="epigraph">A gallery on Elizabeth Bishop's</p>
-  <h1>One Art</h1>
-  <p class="subtitle">An immersive exhibition on loss</p>
-  <button class="scroll-cue" onclick="document.getElementById('poem-banner').scrollIntoView({behavior:'smooth'})">
-    Enter the gallery
-  </button>
-</section>
+  <!-- ═══ INTRO ═══ -->
+  <section id="intro">
+    <p class="epigraph">A gallery on Elizabeth Bishop's</p>
+    <h1>One Art</h1>
+    <p class="subtitle">An immersive exhibition on loss</p>
+    <button class="scroll-cue" onclick="document.getElementById('poem-banner').scrollIntoView({behavior:'smooth'})">
+      Enter the gallery
+    </button>
+  </section>
 
-<!-- ═══ POEM ═══ -->
-<section id="poem-banner">
-  <blockquote>
-    <p><span class="refrain">The art of losing isn't hard to master;</span><br>
-    so many things seem filled with the intent<br>
-    to be lost that their loss is no disaster.</p>
+  <!-- ═══ POEM ═══ -->
+  <section id="poem-banner">
+    <blockquote>
+      <p><span class="refrain">The art of losing isn't hard to master;</span><br>
+        so many things seem filled with the intent<br>
+        to be lost that their loss is no disaster.</p>
 
-    <p style="margin-top:1.5rem">Lose something every day. Accept the fluster<br>
-    of lost door keys, the hour badly spent.<br>
-    <span class="refrain">The art of losing isn't hard to master.</span></p>
+      <p style="margin-top:1.5rem">Lose something every day. Accept the fluster<br>
+        of lost door keys, the hour badly spent.<br>
+        <span class="refrain">The art of losing isn't hard to master.</span>
+      </p>
 
-    <p style="margin-top:1.5rem">Then practice losing farther, losing faster:<br>
-    places, and names, and where it was you meant<br>
-    to travel. None of these will bring disaster.</p>
+      <p style="margin-top:1.5rem">Then practice losing farther, losing faster:<br>
+        places, and names, and where it was you meant<br>
+        to travel. None of these will bring disaster.</p>
 
-    <p style="margin-top:1.5rem">I lost my mother's watch. And look! my last, or<br>
-    next-to-last, of three loved houses went.<br>
-    <span class="refrain">The art of losing isn't hard to master.</span></p>
+      <p style="margin-top:1.5rem">I lost my mother's watch. And look! my last, or<br>
+        next-to-last, of three loved houses went.<br>
+        <span class="refrain">The art of losing isn't hard to master.</span>
+      </p>
 
-    <p style="margin-top:1.5rem">I lost two cities, lovely ones. And, vaster,<br>
-    some realms I owned, two rivers, a continent.<br>
-    I miss them, but it wasn't a disaster.</p>
+      <p style="margin-top:1.5rem">I lost two cities, lovely ones. And, vaster,<br>
+        some realms I owned, two rivers, a continent.<br>
+        I miss them, but it wasn't a disaster.</p>
 
-    <p style="margin-top:1.5rem">—Even losing you (the joking voice, a gesture<br>
-    I love) I shan't have lied. It's evident<br>
-    <span class="refrain">the art of losing's not too hard to master</span><br>
-    though it may look like (Write it!) like disaster.</p>
+      <p style="margin-top:1.5rem">—Even losing you (the joking voice, a gesture<br>
+        I love) I shan't have lied. It's evident<br>
+        <span class="refrain">the art of losing's not too hard to master</span><br>
+        though it may look like (Write it!) like disaster.
+      </p>
 
-    <p class="poet">— Elizabeth Bishop, 1976</p>
-  </blockquote>
-</section>
+      <p class="poet">— Elizabeth Bishop, 1976</p>
+    </blockquote>
+  </section>
 
-<!-- ═══ SECTION I: Small Losses ═══ -->
-<section class="gallery-section" id="room-1">
-<div class="gallery-inner">
-  <div class="section-header reveal">
-    <p class="section-label">Room I</p>
-    <p class="section-verse">"Lose something every day. Accept the fluster<br>of lost door keys, the hour badly spent."</p>
-  </div>
-
-  <div class="artifact-grid grid-3">
-
-    <div class="artifact reveal reveal-delay-1">
-      <div class="artifact-placeholder">🗝️</div>
-      <div class="artifact-body">
-        <p class="artifact-type">Object</p>
-        <p class="artifact-title">A Ring of Mismatched Keys</p>
-        <p class="artifact-caption">Keys to unknown doors, belonging to unknown houses. We carry what we no longer need access to.</p>
-        <p class="artifact-verse">"lost door keys, the hour badly spent"</p>
+  <!-- ═══ SECTION I: Small Losses ═══ -->
+  <section class="gallery-section" id="room-1">
+    <div class="gallery-inner">
+      <div class="section-header reveal">
+        <p class="section-label">Room I</p>
+        <p class="section-verse">"Lose something every day. Accept the fluster<br>of lost door keys, the hour badly
+          spent."</p>
       </div>
-    </div>
 
-    <div class="artifact reveal reveal-delay-2">
-      <div class="artifact-placeholder">📋</div>
-      <div class="artifact-body">
-        <p class="artifact-type">Document</p>
-        <p class="artifact-title">A To-Do List, Mostly Uncrossed</p>
-        <p class="artifact-caption">Tasks that were meant. Errands half-run. The quiet archaeology of an ordinary afternoon that went nowhere.</p>
-        <p class="artifact-verse">"the hour badly spent"</p>
-      </div>
-    </div>
+      <div class="artifact-grid grid-3">
 
-    <div class="artifact reveal reveal-delay-3">
-      <div class="artifact-placeholder">🎟️</div>
-      <div class="artifact-body">
-        <p class="artifact-type">Object / Text</p>
-        <p class="artifact-title">An Unused Train Ticket</p>
-        <p class="artifact-caption">Dated, stamped, and never torn. A journey intended — to a place the speaker once meant to go.</p>
-        <p class="artifact-verse">"where it was you meant / to travel"</p>
-      </div>
-    </div>
-
-  </div>
-</div>
-</section>
-
-<!-- ═══ SECTION II: The Watch ═══ -->
-<section class="gallery-section" id="room-2">
-<div class="gallery-inner">
-  <div class="section-header reveal">
-    <p class="section-label">Room II</p>
-    <p class="section-verse">"I lost my mother's watch."</p>
-  </div>
-
-  <div class="artifact-grid grid-asymmetric">
-
-    <div class="artifact artifact-tall reveal reveal-delay-1">
-      <div class="artifact-placeholder" style="font-size:5rem">⌚</div>
-      <div class="artifact-body">
-        <p class="artifact-type">Heirloom / Object</p>
-        <p class="artifact-title">A Pocket Watch, Stopped</p>
-        <p class="artifact-caption">The watch Bishop lost was her mother's — one of the most intimate objects in the poem. A pocket watch stopped at an arbitrary hour becomes every hour the mother's hands ever touched. Its loss marks the first rupture in the poem's facade of composure.</p>
-        <p class="artifact-verse">"I lost my mother's watch."</p>
-      </div>
-    </div>
-
-    <div style="display:flex;flex-direction:column;gap:2rem">
-      <div class="artifact reveal reveal-delay-2">
-        <div class="artifact-placeholder" style="aspect-ratio:16/7;font-size:2.5rem">🏡 🏡 🏡</div>
-        <div class="artifact-body">
-          <p class="artifact-type">Photograph</p>
-          <p class="artifact-title">Three Houses — Only Outlines Remain</p>
-          <p class="artifact-caption">Bishop lived in many houses across her life: in Nova Scotia, Key West, Brazil. She lost them all, one by one, to time or exile or grief.</p>
-          <p class="artifact-verse">"my last, or / next-to-last, of three loved houses went"</p>
+        <div class="artifact reveal reveal-delay-1">
+          <img class="artifact-image" src="https://d3h6k4kfl8m9p0.cloudfront.net/stories/jItpK34-7ZToUO7M8yWYwA.jpg" alt="A ring of mismatched keys">
+          <div class="artifact-body">
+            <p class="artifact-type">Object</p>
+            <p class="artifact-title">A Ring of Mismatched Keys</p>
+            <p class="artifact-caption">Keys to unknown doors, belonging to unknown houses. We carry what we no longer
+              need access to.</p>
+            <p class="artifact-verse">"lost door keys, the hour badly spent"</p>
+          </div>
         </div>
-      </div>
 
-      <div class="artifact reveal reveal-delay-3">
-        <div class="artifact-placeholder" style="aspect-ratio:16/7;font-size:2rem">📖</div>
-        <div class="artifact-body">
-          <p class="artifact-type">Manuscript</p>
-          <p class="artifact-title">Bishop's Draft — One of Seventeen</p>
-          <p class="artifact-caption">The Vassar College archive holds seventeen drafts of this poem. In early versions, the final stanza breaks down entirely. The controlled form was hard-won — the effort to master it visible in every crossed-out line.</p>
-          <p class="artifact-verse">"(Write it!)"</p>
+        <div class="artifact reveal reveal-delay-2">
+          <img class="artifact-image" src="todoList.png" alt="A ring of mismatched keys">
+          <div class="artifact-body">
+            <p class="artifact-type">Document</p>
+            <p class="artifact-title">A To-Do List, Mostly Uncrossed</p>
+            <p class="artifact-caption">Tasks that were meant. Errands half-run. The quiet archaeology of an ordinary
+              afternoon that went nowhere.</p>
+            <p class="artifact-verse">"the hour badly spent"</p>
+          </div>
         </div>
-      </div>
-    </div>
 
-  </div>
-</div>
-</section>
-
-<!-- ═══ SECTION III: Cities & Continents ═══ -->
-<section class="gallery-section" id="room-3">
-<div class="gallery-inner">
-  <div class="section-header reveal">
-    <p class="section-label">Room III</p>
-    <p class="section-verse">"I lost two cities, lovely ones. And, vaster,<br>some realms I owned, two rivers, a continent."</p>
-  </div>
-
-  <div class="artifact-grid grid-2">
-
-    <div class="artifact reveal reveal-delay-1">
-      <div class="artifact-placeholder" style="font-size:4rem">🗺️</div>
-      <div class="artifact-body">
-        <p class="artifact-type">Cartography</p>
-        <p class="artifact-title">Antique Map of Brazil</p>
-        <p class="artifact-caption">Bishop lived in Petrópolis and Rio de Janeiro for fifteen years, following her partner Lota de Macedo Soares. When Lota died in 1967, Bishop lost not just a person — she lost an entire geography of self.</p>
-        <p class="artifact-verse">"a continent"</p>
-      </div>
-    </div>
-
-    <div class="artifact reveal reveal-delay-2">
-      <div class="artifact-placeholder" style="font-size:4rem">🧭</div>
-      <div class="artifact-body">
-        <p class="artifact-type">Object</p>
-        <p class="artifact-title">A Compass Without a True North</p>
-        <p class="artifact-caption">To lose a continent is to lose orientation itself. The compass points somewhere — but where you meant to go no longer exists in the way you knew it.</p>
-        <p class="artifact-verse">"places, and names, and where it was you meant / to travel"</p>
-      </div>
-    </div>
-
-    <div class="artifact reveal reveal-delay-1">
-      <div class="artifact-placeholder" style="font-size:4rem">🌊</div>
-      <div class="artifact-body">
-        <p class="artifact-type">Photograph</p>
-        <p class="artifact-title">The Amazon &amp; the Charles — Two Rivers</p>
-        <p class="artifact-caption">Critics identify these as the Amazon (Brazil) and the Charles (Cambridge, MA, where Bishop later taught). Two rivers, two phases of a life that could not be reconciled.</p>
-        <p class="artifact-verse">"two rivers"</p>
-      </div>
-    </div>
-
-    <div class="artifact reveal reveal-delay-2">
-      <div class="artifact-placeholder" style="font-size:4rem">✉️</div>
-      <div class="artifact-body">
-        <p class="artifact-type">Published Text</p>
-        <p class="artifact-title">Bishop's Letters to Robert Lowell</p>
-        <p class="artifact-caption">Their decades-long correspondence traces the losses Bishop refused to name directly in her poetry. Here, in prose, the disaster is legible between the lines.</p>
-        <p class="artifact-verse">"I miss them, but it wasn't a disaster."</p>
-      </div>
-    </div>
-
-  </div>
-</div>
-</section>
-
-<!-- ═══ SECTION IV: The You ═══ -->
-<section id="section-you">
-  <div class="you-inner">
-    <div class="reveal">
-      <p class="section-label" style="text-align:center">Room IV — The Final Room</p>
-      <p class="section-verse" style="text-align:center;margin-top:0.5rem">"—Even losing you (the joking voice, a gesture / I love)"</p>
-    </div>
-
-    <span class="disaster-word" id="disaster-word">disaster.</span>
-
-    <div class="you-artifacts">
-
-      <div class="artifact reveal reveal-delay-1">
-        <div class="artifact-placeholder" style="font-size:3rem">📷</div>
-        <div class="artifact-body">
-          <p class="artifact-type">Photograph</p>
-          <p class="artifact-title">A Blurred Portrait</p>
-          <p class="artifact-caption">The face partially obscured. The "you" of the poem is never named — Lota, most likely. Or the idea of Lota. Or everyone.</p>
-          <p class="artifact-verse">"Even losing you"</p>
+        <div class="artifact reveal reveal-delay-3">
+          <img class="artifact-image" src="https://i.redd.it/u5j34wt2u3w51.jpg" alt="A ring of mismatched keys">
+          <div class="artifact-body">
+            <p class="artifact-type">Object / Text</p>
+            <p class="artifact-title">An Unused Train Ticket</p>
+            <p class="artifact-caption">Dated, stamped, and never torn. A journey intended — to a place the speaker once
+              meant to go.</p>
+            <p class="artifact-verse">"where it was you meant / to travel"</p>
+          </div>
         </div>
-      </div>
 
-      <div class="artifact reveal reveal-delay-2">
-        <div class="artifact-placeholder" style="font-size:3rem">📝</div>
-        <div class="artifact-body">
-          <p class="artifact-type">Object</p>
-          <p class="artifact-title">An Unfinished Letter</p>
-          <p class="artifact-caption">Signed, sealed, unsent. What do you say to someone you've lost? The letter waits for an address that no longer exists.</p>
-          <p class="artifact-verse">"the joking voice, a gesture / I love"</p>
-        </div>
       </div>
-
-      <div class="artifact reveal reveal-delay-3">
-        <div class="artifact-placeholder" style="font-size:3rem">☕</div>
-        <div class="artifact-body">
-          <p class="artifact-type">Object</p>
-          <p class="artifact-title">A Cup, A Lipstick Mark</p>
-          <p class="artifact-caption">Nothing survives grief like the mundane. A stained cup is more unbearable than a monument — because the monument was never real, and the cup was.</p>
-          <p class="artifact-verse">"a gesture / I love"</p>
-        </div>
-      </div>
-
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ═══ CLOSING ═══ -->
-<section id="closing">
-  <p class="final-line">
-    the art of losing's not too hard to master<br>
-    though it may look like <span class="parenthetical">(Write it!)</span> like disaster.
-  </p>
-  <div style="margin-top:4rem;width:48px;height:1px;background:#9b4a2a;margin-left:auto;margin-right:auto;opacity:0.5"></div>
-  <div class="credit">
-    Elizabeth Bishop · "One Art" · <em>Geography III</em>, 1976<br>
-    Exhibition curated as a response to the poem's escalating losses.<br>
-    <br>
-    Artifacts sourced and imagined in the spirit of the poem.
-  </div>
-</section>
+  <!-- ═══ SECTION II: The Watch ═══ -->
+  <section class="gallery-section" id="room-2">
+    <div class="gallery-inner">
+      <div class="section-header reveal">
+        <p class="section-label">Room II</p>
+        <p class="section-verse">"I lost my mother's watch."</p>
+      </div>
 
-<script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(r => io.observe(r));
+      <div class="artifact-grid grid-asymmetric">
 
-  // Disaster word flicker on scroll
-  const disaster = document.getElementById('disaster-word');
-  const io2 = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        disaster.classList.add('visible');
-        io2.disconnect();
-      }
-    });
-  }, { threshold: 0.5 });
-  io2.observe(disaster);
-</script>
+        <div class="artifact artifact-tall reveal reveal-delay-1">
+          <img class="artifact-image" src="lostWatch.png" alt="A ring of mismatched keys">
+          <div class="artifact-body">
+            <p class="artifact-type">Heirloom / Object</p>
+            <p class="artifact-title">A Pocket Watch, Stopped</p>
+            <p class="artifact-caption">The watch Bishop lost was her mother's — one of the most intimate objects in the
+              poem. A pocket watch stopped at an arbitrary hour becomes every hour the mother's hands ever touched. Its
+              loss marks the first rupture in the poem's facade of composure.</p>
+            <p class="artifact-verse">"I lost my mother's watch."</p>
+          </div>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:2rem">
+          <div class="artifact reveal reveal-delay-2">
+            <div class="artifact-placeholder" style="aspect-ratio:16/7;font-size:2.5rem">🏡 🏡 🏡</div>
+            <div class="artifact-body">
+              <p class="artifact-type">Photograph</p>
+              <p class="artifact-title">Three Houses — Only Outlines Remain</p>
+              <p class="artifact-caption">Bishop lived in many houses across her life: in Nova Scotia, Key West, Brazil.
+                She lost them all, one by one, to time or exile or grief.</p>
+              <p class="artifact-verse">"my last, or / next-to-last, of three loved houses went"</p>
+            </div>
+          </div>
+
+          <div class="artifact reveal reveal-delay-3">
+            <img class="artifact-image" src="https://i.pinimg.com/736x/32/42/7d/32427d89e446a2cbffc90f95cb06fc32.jpg" alt="A ring of mismatched keys">
+            <div class="artifact-body">
+              <p class="artifact-type">Manuscript</p>
+              <p class="artifact-title">Bishop's Draft — One of Seventeen</p>
+              <p class="artifact-caption">The Vassar College archive holds seventeen drafts of this poem. In early
+                versions, the final stanza breaks down entirely. The controlled form was hard-won — the effort to master
+                it visible in every crossed-out line.</p>
+              <p class="artifact-verse">"(Write it!)"</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION III: Cities & Continents ═══ -->
+  <section class="gallery-section" id="room-3">
+    <div class="gallery-inner">
+      <div class="section-header reveal">
+        <p class="section-label">Room III</p>
+        <p class="section-verse">"I lost two cities, lovely ones. And, vaster,<br>some realms I owned, two rivers, a
+          continent."</p>
+      </div>
+
+      <div class="artifact-grid grid-2">
+
+        <div class="artifact reveal reveal-delay-1">
+          <img class="artifact-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Mapa_da_rota_a%C3%A9rea_do_Correio_A%C3%A9reo_Nacional.tif/lossy-page1-1280px-Mapa_da_rota_a%C3%A9rea_do_Correio_A%C3%A9reo_Nacional.tif.jpg?utm_source=commons.wikimedia.org&utm_campaign=gallery&utm_content=thumbnail" alt="A ring of mismatched keys">
+          <div class="artifact-body">
+            <p class="artifact-type">Cartography</p>
+            <p class="artifact-title">Antique Map of Brazil</p>
+            <p class="artifact-caption">Bishop lived in Petrópolis and Rio de Janeiro for fifteen years, following her
+              partner Lota de Macedo Soares. When Lota died in 1967, Bishop lost not just a person — she lost an entire
+              geography of self.</p>
+            <p class="artifact-verse">"a continent"</p>
+          </div>
+        </div>
+
+        <div class="artifact reveal reveal-delay-2">
+          <img class="artifact-image" src="https://tse4.mm.bing.net/th/id/OIP.lIL_qGmzPNAkW3Hb6wlA-AHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3" alt="A ring of mismatched keys">
+          <div class="artifact-body">
+            <p class="artifact-type">Object</p>
+            <p class="artifact-title">A Compass Without a True North</p>
+            <p class="artifact-caption">To lose a continent is to lose orientation itself. The compass points somewhere
+              — but where you meant to go no longer exists in the way you knew it.</p>
+            <p class="artifact-verse">"places, and names, and where it was you meant / to travel"</p>
+          </div>
+        </div>
+
+        <div class="artifact reveal reveal-delay-1">
+          <img class="artifact-image" src="https://res.cloudinary.com/rainforest-cruises/images/c_fill,g_auto/f_auto,q_auto/v1622493750/shutterstock_1111584806-15-Astonishing-Facts-About-The-Amazon-Riverjpg1120/shutterstock_1111584806-15-Astonishing-Facts-About-The-Amazon-Riverjpg1120.jpg" alt="A ring of mismatched keys">
+          <div class="artifact-body">
+            <p class="artifact-type">Photograph</p>
+            <p class="artifact-title">The Amazon &amp; the Charles — Two Rivers</p>
+            <p class="artifact-caption">Critics identify these as the Amazon (Brazil) and the Charles (Cambridge, MA,
+              where Bishop later taught). Two rivers, two phases of a life that could not be reconciled.</p>
+            <p class="artifact-verse">"two rivers"</p>
+          </div>
+        </div>
+
+        <div class="artifact reveal reveal-delay-2">
+          <img class="artifact-image" src="https://static01.nyt.com/images/2008/10/31/books/logan-3-500.jpg" alt="A ring of mismatched keys">
+          <div class="artifact-body">
+            <p class="artifact-type">Published Text</p>
+            <p class="artifact-title">Bishop's Letters to Robert Lowell</p>
+            <p class="artifact-caption">Their decades-long correspondence traces the losses Bishop refused to name
+              directly in her poetry. Here, in prose, the disaster is legible between the lines.</p>
+            <p class="artifact-verse">"I miss them, but it wasn't a disaster."</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SECTION IV: The You ═══ -->
+  <section id="section-you">
+    <div class="you-inner">
+      <div class="reveal">
+        <p class="section-label" style="text-align:center">Room IV — The Final Room</p>
+        <p class="section-verse" style="text-align:center;margin-top:0.5rem">"—Even losing you (the joking voice, a
+          gesture / I love)"</p>
+      </div>
+
+      <span class="disaster-word" id="disaster-word">disaster.</span>
+
+      <div class="you-artifacts">
+
+        <div class="artifact reveal reveal-delay-1">
+          <img class="artifact-image" src="pexels-moshalex-30251451.jpg" alt="A ring of mismatched keys">
+          <div class="artifact-body">
+            <p class="artifact-type">Photograph</p>
+            <p class="artifact-title">A Blurred Portrait</p>
+            <p class="artifact-caption">The face partially obscured. The "you" of the poem is never named — Lota, most
+              likely. Or the idea of Lota. Or everyone.</p>
+            <p class="artifact-verse">"Even losing you"</p>
+          </div>
+        </div>
+
+        <div class="artifact reveal reveal-delay-2">
+          <div class="artifact-placeholder" style="font-size:3rem">📝</div>
+          <div class="artifact-body">
+            <p class="artifact-type">Object</p>
+            <p class="artifact-title">An Unfinished Letter</p>
+            <p class="artifact-caption">Signed, sealed, unsent. What do you say to someone you've lost? The letter waits
+              for an address that no longer exists.</p>
+            <p class="artifact-verse">"the joking voice, a gesture / I love"</p>
+          </div>
+        </div>
+
+        <div class="artifact reveal reveal-delay-3">
+          <div class="artifact-placeholder" style="font-size:3rem">☕</div>
+          <div class="artifact-body">
+            <p class="artifact-type">Object</p>
+            <p class="artifact-title">A Cup, A Lipstick Mark</p>
+            <p class="artifact-caption">Nothing survives grief like the mundane. A stained cup is more unbearable than a
+              monument — because the monument was never real, and the cup was.</p>
+            <p class="artifact-verse">"a gesture / I love"</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CLOSING ═══ -->
+  <section id="closing">
+    <p class="final-line">
+      the art of losing's not too hard to master<br>
+      though it may look like <span class="parenthetical">(Write it!)</span> like disaster.
+    </p>
+    <div
+      style="margin-top:4rem;width:48px;height:1px;background:#9b4a2a;margin-left:auto;margin-right:auto;opacity:0.5">
+    </div>
+    <div class="credit">
+      Elizabeth Bishop · "One Art" · <em>Geography III</em>, 1976<br>
+      Exhibition curated as a response to the poem's escalating losses.<br>
+      <br>
+      Artifacts sourced and imagined in the spirit of the poem.
+    </div>
+  </section>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(r => io.observe(r));
+
+    // Disaster word flicker on scroll
+    const disaster = document.getElementById('disaster-word');
+    const io2 = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          disaster.classList.add('visible');
+          io2.disconnect();
+        }
+      });
+    }, { threshold: 0.5 });
+    io2.observe(disaster);
+  </script>
 </body>
+
 </html>
